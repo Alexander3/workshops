@@ -11,8 +11,16 @@ RED = (255, 0, 0)
 BLUE = (0, 255, 255)
 GREEN = (0, 255, 0)
 VIOLET = (255, 0, 255)
+
 SMALL_CIRCLE_SIZE = 5
 INITIAL_MASS = 12
+MASS_FROM_EATEN_PLAYER = 0.5
+MASS_LOSS = 2
+
+FRAMERATE = 60
+# In seconds
+LOOSE_MASS_INTERVAL = 5
+SPAWN_FOOD_INTERAL = 0.08
 
 
 class Player:
@@ -43,13 +51,13 @@ class OgarIOGame:
 
     def update(self, frame):
         # sleep to make the game 60 fps
-        self.clock.tick(60)
+        self.clock.tick(FRAMERATE)
         self.screen.fill(0)
 
-        if frame % 5 == 0:
+        if frame % round(FRAMERATE * SPAWN_FOOD_INTERAL) == 0:
             self.add_food()
 
-        if frame % 60 * 5 == 0:
+        if frame % FRAMERATE * LOOSE_MASS_INTERVAL == 0:
             self.loose_mass()
 
         self.eat_food()
@@ -68,15 +76,16 @@ class OgarIOGame:
 
     def receive_player_commands(self):
         try:
-            command, user = self.queue.get_nowait()
-            if user not in self.players:
-                self.create_player(user)
-                print('player added')
-            self.players[user].command = command
+            command, player_id = self.queue.get_nowait()
+            if player_id not in self.players:
+                self.create_player(player_id)
+                print(f'player {player_id} added')
+            self.players[player_id].command = command
         except queue.Empty:
             pass
 
     def process_events(self):
+        """It's good place to add some interaction on server side like kill player on click, or spawn something"""
         for event in pygame.event.get():
             # quit if the quit button was pressed
             if event.type == pygame.QUIT:
@@ -91,18 +100,17 @@ class OgarIOGame:
                 if dist < abs(SMALL_CIRCLE_SIZE - player.mass) and food_piece in self.food:
                     self.food.remove(food_piece)
                     player.mass += 0.5
-        #             TODO: bug!
 
     def eat_players(self):
         for player1, player2 in combinations(self.players.values(), 2):
             dist = math.hypot(player1.posx - player2.posx, player1.posy - player2.posy)
-            if dist < abs(SMALL_CIRCLE_SIZE - player1.mass):
+            if dist < abs(player2.mass - player1.mass):
                 if player1.mass > player2.mass:
-                    player1.mass += player2.mass / 2
+                    player1.mass += player2.mass * MASS_FROM_EATEN_PLAYER
                     del self.players[player2.id]
                     break
                 elif player2.mass > player1.mass:
-                    player2.mass += player1.mass / 2
+                    player2.mass += player1.mass * MASS_FROM_EATEN_PLAYER
                     del self.players[player1.id]
                     break
 
@@ -137,5 +145,5 @@ class OgarIOGame:
 
     def loose_mass(self):
         for player in self.players.values():
-            player.mass -= 2
+            player.mass -= MASS_LOSS
             player.mass = max(player.mass, INITIAL_MASS)
