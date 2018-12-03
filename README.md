@@ -2,6 +2,8 @@
 
 To repozytorium zawiera zadania do warsztatów z programowania w Pythonie 
 
+[facebook](https://www.facebook.com/Warsztaty-Programowania-Trzebinia-635087866893182)
+
 ## Części
 - [1 - Podstawy](1.md)
 - [2 - Listy](2.md)
