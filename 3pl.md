@@ -5,54 +5,54 @@
 
 1. Zaimplementuj grę w wisielca bazując na poniższym kodzie (zmień miejsca zawierające komentarze TODO).
 ```python
-max_guesses = 9
-lives = max_guesses
-secret_word = 'pythoniczny kod'
-displayed_word = ['_'] * len(secret_word)
+maksymalna_liczba_prob = 9
+liczba_zyc = maksymalna_liczba_prob
+haslo = 'pythoniczny kod'
+wyswietlane_slowo = ['_'] * len(haslo)
 
-def welcome():
-    print("Witaj w grze wisielec. Masz {} zyc.".format(lives))
+def powitanie():
+    print("Witaj w grze wisielec. Masz {} zyc.".format(liczba_zyc))
 
-def get_letter():
+def wczytaj_litere():
     pass
     # TODO: funkcja powinna pobierać literę od użytkownika
 
-def bad_guess():
+def nie_zgadles():
     pass
     # TODO: wyświetl informację że użytkownik wpisał złą literę i odejmij jedno życie
     # hint: trzeba użyć słowa kluczowego `global`
 
-def print_word():
-    msg = "Slowo ktore zgadujesz: {} ({} znakow)"
-    word = ''.join(displayed_word)
-    print(msg.format(word, len(displayed_word)))
+def wyswietl_slowo():
+    wiadomosc = "Slowo ktore zgadujesz: {} ({} znakow)"
+    slowo = ''.join(wyswietlane_slowo)
+    print(wiadomosc.format(slowo, len(wyswietlane_slowo)))
 
-def unhide_letter(letter):
+def odkryj_litere(litera):
     pass
-    # TODO: odkryj wszystkie wystąpienia `letter` z `secret_word` w `displayed_word`
+    # TODO: odkryj wszystkie wystąpienia `litera` z `haslo` w `wyswietlane_slowo`
     # hint: `enumerate` może się przydać
 
-def play():
-    unhide_letter(' ')
-    welcome()
+def gra():
+    odkryj_litere(' ')
+    powitanie()
 
-    while lives > 0 and ''.join(displayed_word) != secret_word:
-        print_word()
-        letter = get_letter()
+    while liczba_zyc > 0 and ''.join(wyswietlane_slowo) != haslo:
+        wyswietl_slowo()
+        litera = wczytaj_litere()
 
-        if letter in secret_word:
-            unhide_letter(letter)
+        if litera in haslo:
+            odkryj_litere(litera)
         else:
-            bad_guess()
+            nie_zgadles()
 
-    # skoro lives != 0, to znaczy ze gracz wygral
-    if lives:
-        print("Wygrales! Slowo to: {}".format(secret_word))
-        print("Udalo ci sie tego dokonac w {} probach!".format(max_guesses - lives))
+    # skoro liczba_zyc != 0, to znaczy ze gracz wygral
+    if liczba_zyc:
+        print("Wygrales! Slowo to: {}".format(haslo))
+        print("Udalo ci sie tego dokonac w {} probach!".format(maksymalna_liczba_prob - liczba_zyc))
     else:
-        print("Przegrales! Szukane slowo to: {}".format(secret_word))
+        print("Przegrales! Szukane slowo to: {}".format(haslo))
 
-play()
+gra()
 ```
 + napraw bug podający złą ilość prób (tak naprawdę gracz stracił 2 życia, a nie dokonał 2 próby)
 + rozszerz grę tak, żeby wielkość liter podanych przez użytkownika nie miała znaczenia (hint: metoda lower() na stringu)
