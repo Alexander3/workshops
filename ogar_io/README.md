@@ -2,6 +2,8 @@
 Gra w stylu [agar.io](https://agar.io/) napisana w Pythonie. Na zajęciach pisaliśmy klienta do niej i 
 omawialiśmy działanie serwera.
 
+<a href="https://www.facebook.com/635087866893182/videos/734805853544690/"><img src="movie.png"/></a>
+
 ## Instalacja
 
 `pip install -r requirements.txt`
