@@ -1,5 +1,5 @@
 # Warsztaty Programowania
-<img src="img/logo.png">
+<img src="img/logo.png" height="200">
 To repozytorium zawiera zadania do warsztatów z programowania w Pythonie 
 
 [facebook](https://www.facebook.com/Warsztaty-Programowania-Trzebinia-635087866893182)
