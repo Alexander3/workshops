@@ -13,6 +13,10 @@ To repozytorium zawiera zadania do warsztatów z programowania w Pythonie
 - [Kod do gry Ogar.io](ogar_io)
 - [Prezentacja - Security](https://docs.google.com/presentation/d/1DB7DttPP8xkBTjrf9BrwUlI9456mzspRYfrJeHERpgE/edit?usp=sharing) Dominik Czanota
 
+## Instalacja Pythona
+
+[Link](install_python/README.md) do instrukcji konfiguracji środowiska, Python + Pycharm 
+
 ## Wykorzystane materiały
  [raspberryjammod](https://github.com/arpruss/raspberryjammod) - mod do Minecraft 
  pozwalający na komunikację za pomocą biblioteki [mcpi](https://github.com/martinohanlon/mcpi) (biblioteki do Pythona). 
