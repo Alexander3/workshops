@@ -10,8 +10,14 @@ To repozytorium zawiera zadania do warsztatów z programowania w Pythonie
 - [3 - Gry w terminalu](3.md) ewentulnie [wersja bardziej spolszczona](3pl.md)
 - [4 - Komunikacja sieciowa](4.md)
 - [5 - Wizualizacja danych](5.md)
-- [Kod do gry Ogar.io](ogar_io)
-- [Prezentacja - Security](https://docs.google.com/presentation/d/1DB7DttPP8xkBTjrf9BrwUlI9456mzspRYfrJeHERpgE/edit?usp=sharing) Dominik Czanota
+
+[Kod do gry Ogar.io](ogar_io)  
+[Prezentacja - Security](https://docs.google.com/presentation/d/1DB7DttPP8xkBTjrf9BrwUlI9456mzspRYfrJeHERpgE/edit?usp=sharing) Dominik Czanota
+
+Prezentacje: 
+- [1. Podstawy podstaw](https://docs.google.com/presentation/d/17l3NKQCqEwofyKpeuP51exhxsSwYy1Y2pgfbtFV5EHc/edit?usp=sharing)
+- [2](https://docs.google.com/presentation/d/1aIOXV5VxCjz2XJKGtEi4qgPG7rqQT3iLlgM9aGVppAE/edit?usp=sharing)
+- [3](https://docs.google.com/presentation/d/1toEqvJ9Szw4NUdvIGaLClMUlZWyIbWyyOWzWsjkuXek/edit?usp=sharing)
 
 ## Wykorzystane materiały
  [raspberryjammod](https://github.com/arpruss/raspberryjammod) - mod do Minecraft 
